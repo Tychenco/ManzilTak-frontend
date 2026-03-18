@@ -21,46 +21,6 @@ export default async function Layout(props: {
       <BaseTemplate
         leftNav={(
           <>
-            <li>
-              <Link
-                href="/"
-                className="border-none text-gray-700 hover:text-gray-900"
-              >
-                {t('home_link')}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/about/"
-                className="border-none text-gray-700 hover:text-gray-900"
-              >
-                {t('about_link')}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/counter/"
-                className="border-none text-gray-700 hover:text-gray-900"
-              >
-                {t('counter_link')}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/portfolio/"
-                className="border-none text-gray-700 hover:text-gray-900"
-              >
-                {t('portfolio_link')}
-              </Link>
-            </li>
-            <li>
-              <a
-                className="border-none text-gray-700 hover:text-gray-900"
-                href="https://github.com/ixartz/Next-js-Boilerplate"
-              >
-                GitHub
-              </a>
-            </li>
           </>
         )}
         rightNav={(
