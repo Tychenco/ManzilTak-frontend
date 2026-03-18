@@ -21,30 +21,6 @@ export default async function Layout(props: {
       <BaseTemplate
         leftNav={(
           <>
-            <li>
-              <Link
-                href="/counter/"
-                className="border-none text-gray-700 hover:text-gray-900"
-              >
-                Assessments
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/portfolio/"
-                className="border-none text-gray-700 hover:text-gray-900"
-              >
-                Career Paths
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/about/"
-                className="border-none text-gray-700 hover:text-gray-900"
-              >
-                How It Works
-              </Link>
-            </li>
           </>
         )}
         rightNav={(

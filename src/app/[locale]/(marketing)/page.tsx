@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import { HeroSection } from '@/components/home/HeroSection';
 import { Navbar } from '@/components/layout/Navbar';
 
@@ -8,15 +8,11 @@ type IndexPageProps = {
 };
 
 export async function generateMetadata(props: IndexPageProps): Promise<Metadata> {
-  const { locale } = await props.params;
-  const t = await getTranslations({
-    locale,
-    namespace: 'Index',
-  });
+  await props.params;
 
   return {
-    title: t('meta_title'),
-    description: t('meta_description'),
+    title: 'ManzilTak',
+    description: 'ManzilTak platform foundation',
   };
 }
 
@@ -30,4 +26,4 @@ export default async function Index(props: IndexPageProps) {
       <HeroSection />
     </div>
   );
-};
+}

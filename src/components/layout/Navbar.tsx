@@ -1,10 +1,6 @@
 import { Link } from '@/libs/I18nNavigation';
 
-const navigationItems: Array<{ href: string; label: string }> = [
-  { href: '/counter/', label: 'Assessments' },
-  { href: '/portfolio/', label: 'Career Paths' },
-  { href: '/about/', label: 'How It Works' },
-];
+const navigationItems: Array<{ href: string; label: string }> = [];
 
 export function Navbar() {
   return (

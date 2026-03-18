@@ -1,4 +1,4 @@
-import { Link } from '@/libs/I18nNavigation';
+
 
 export function HeroSection() {
   return (
@@ -21,19 +21,6 @@ export function HeroSection() {
         </div>
 
         <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
-          <Link
-            href="/counter/"
-            className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-700"
-          >
-            Start Assessment
-          </Link>
-
-          <Link
-            href="/about/"
-            className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition-colors hover:border-slate-400 hover:text-slate-900"
-          >
-            View Demo
-          </Link>
         </div>
       </div>
     </section>
