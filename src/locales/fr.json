@@ -1,12 +1,5 @@
 {
   "RootLayout": {
-    "home_link": "Accueil",
-    "about_link": "A propos",
-    "counter_link": "Compteur",
-    "portfolio_link": "Portfolio",
-    "assessments_link": "Evaluations",
-    "career_paths_link": "Parcours de carriere",
-    "how_it_works_link": "Comment ca marche",
     "sign_in_link": "Se connecter",
     "sign_up_link": "S'inscrire"
   },
@@ -17,9 +10,7 @@
   },
   "Index": {
     "meta_title": "Présentation de Next.js Boilerplate",
-    "meta_description": "Next js Boilerplate est le code de démarrage parfait pour votre projet. Construisez votre application React avec le framework Next.js.",
-    "sponsors_title": "Partenaires",
-    "zap_emoji_label": "Éclair"
+    "meta_description": "Next js Boilerplate est le code de démarrage parfait pour votre projet. Construisez votre application React avec le framework Next.js."
   },
   "Counter": {
     "meta_title": "Compteur",

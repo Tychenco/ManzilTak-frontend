@@ -1,12 +1,5 @@
 {
   "RootLayout": {
-    "home_link": "Home",
-    "about_link": "About",
-    "counter_link": "Counter",
-    "portfolio_link": "Portfolio",
-    "assessments_link": "Assessments",
-    "career_paths_link": "Career Paths",
-    "how_it_works_link": "How It Works",
     "sign_in_link": "Sign in",
     "sign_up_link": "Sign up"
   },
@@ -17,9 +10,7 @@
   },
   "Index": {
     "meta_title": "Next.js Boilerplate Presentation",
-    "meta_description": "Next js Boilerplate is the perfect starter code for your project. Build your React application with the Next.js framework.",
-    "sponsors_title": "Sponsors",
-    "zap_emoji_label": "Zap"
+    "meta_description": "Next js Boilerplate is the perfect starter code for your project. Build your React application with the Next.js framework."
   },
   "Counter": {
     "meta_title": "Counter",
