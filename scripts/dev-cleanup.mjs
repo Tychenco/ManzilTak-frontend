@@ -1,5 +1,5 @@
-import { existsSync, rmSync } from 'node:fs';
 import { execSync } from 'node:child_process';
+import { existsSync, rmSync } from 'node:fs';
 import path from 'node:path';
 
 const mode = process.argv[2] ?? 'full';
