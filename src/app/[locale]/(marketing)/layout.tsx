@@ -23,26 +23,10 @@ export default async function Layout(props: {
           <>
             <li>
               <Link
-                href="/"
-                className="border-none text-gray-700 hover:text-gray-900"
-              >
-                {t('home_link')}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/about/"
-                className="border-none text-gray-700 hover:text-gray-900"
-              >
-                {t('about_link')}
-              </Link>
-            </li>
-            <li>
-              <Link
                 href="/counter/"
                 className="border-none text-gray-700 hover:text-gray-900"
               >
-                {t('counter_link')}
+                Assessments
               </Link>
             </li>
             <li>
@@ -50,16 +34,16 @@ export default async function Layout(props: {
                 href="/portfolio/"
                 className="border-none text-gray-700 hover:text-gray-900"
               >
-                {t('portfolio_link')}
+                Career Paths
               </Link>
             </li>
             <li>
-              <a
+              <Link
+                href="/about/"
                 className="border-none text-gray-700 hover:text-gray-900"
-                href="https://github.com/ixartz/Next-js-Boilerplate"
               >
-                GitHub
-              </a>
+                How It Works
+              </Link>
             </li>
           </>
         )}

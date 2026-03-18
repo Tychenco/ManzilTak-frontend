@@ -54,8 +54,8 @@ export default async function RootLayout(props: {
   setRequestLocale(locale);
 
   return (
-    <html lang={locale}>
-      <body>
+    <html lang={locale} suppressHydrationWarning>
+      <body suppressHydrationWarning>
         <NextIntlClientProvider>
           <PostHogProvider>
             {props.children}
