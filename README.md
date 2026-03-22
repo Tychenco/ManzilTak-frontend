@@ -537,7 +537,7 @@ npm run build-stats
 
 By running the command, it'll automatically open a new browser window with the results.
 
-#### Database Studio
+#### Database Studio  
 
 The project is already configured with Drizzle Studio to explore the database. You can run the following command to open the database studio:
 
