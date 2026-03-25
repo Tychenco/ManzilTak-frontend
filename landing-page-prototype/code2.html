@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ManzilTak | The Academic Curator</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-container": "#ffffff",
+              "on-primary": "#ffffff",
+              "on-surface": "#1c1c1a",
+              "on-tertiary-fixed": "#231b00",
+              "on-secondary-fixed": "#390b00",
+              "on-primary-fixed": "#001a43",
+              "secondary-fixed": "#ffdbd0",
+              "tertiary": "#735c00",
+              "on-primary-fixed-variant": "#004397",
+              "surface-container-lowest": "#ffffff",
+              "error-container": "#ffdad6",
+              "surface-container-highest": "#e5e2e0",
+              "on-tertiary-fixed-variant": "#574500",
+              "on-error-container": "#93000a",
+              "on-secondary-container": "#762c12",
+              "tertiary-container": "#cea700",
+              "outline-variant": "#c1c6d7",
+              "background": "#fcf9f6",
+              "on-tertiary-container": "#4e3e00",
+              "secondary-container": "#fe9572",
+              "surface": "#fcf9f6",
+              "on-surface-variant": "#414754",
+              "inverse-primary": "#aec6ff",
+              "outline": "#727786",
+              "on-tertiary": "#ffffff",
+              "primary": "#0058c3",
+              "surface-bright": "#fcf9f6",
+              "primary-container": "#0070f3",
+              "surface-container": "#f0edeb",
+              "primary-fixed": "#d8e2ff",
+              "on-secondary": "#ffffff",
+              "surface-container-high": "#ebe8e5",
+              "surface-tint": "#0059c5",
+              "inverse-surface": "#31302f",
+              "secondary-fixed-dim": "#ffb59e",
+              "on-error": "#ffffff",
+              "on-secondary-fixed-variant": "#7a2f15",
+              "secondary": "#99462a",
+              "tertiary-fixed-dim": "#eec200",
+              "primary-fixed-dim": "#aec6ff",
+              "error": "#ba1a1a",
+              "tertiary-fixed": "#ffe083",
+              "surface-container-low": "#f6f3f1",
+              "surface-dim": "#dcd9d7",
+              "inverse-on-surface": "#f3f0ee",
+              "on-background": "#1c1c1a",
+              "surface-variant": "#e5e2e0",
+              "azure": "#0070F3",
+              "coral": "#fe9572",
+              "sunny": "#ffe083"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        
+        @keyframes shader-drift {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(5%, 5%) scale(1.1); }
+            66% { transform: translate(-3%, 2%) scale(0.95); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        .shader-bg {
+            position: absolute;
+            top: -20%;
+            left: -20%;
+            right: -20%;
+            bottom: -20%;
+            background: #ffffff;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .shader-blob {
+            position: absolute;
+            width: 70vw;
+            height: 70vw;
+            filter: blur(120px);
+            opacity: 0.18;
+            transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .blob-1 { background: radial-gradient(circle, #0070F3 0%, transparent 70%); top: 0; left: 0; }
+        .blob-2 { background: radial-gradient(circle, #fe9572 0%, transparent 70%); bottom: 0; right: 0; }
+        .blob-3 { background: radial-gradient(circle, #ffe083 0%, transparent 70%); top: 30%; left: 40%; }
+
+        /* Bi-directional scroll reveals */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1200ms cubic-bezier(0.16, 1, 0.3, 1), transform 1200ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Profound Elegant Reveal for Hero */
+        .hero-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            filter: blur(8px);
+            transition: opacity 2500ms cubic-bezier(0.16, 1, 0.3, 1), transform 2500ms cubic-bezier(0.16, 1, 0.3, 1), filter 2000ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hero-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+
+        /* Character-by-character Typewriter effect */
+        .typewriter-text {
+            display: inline;
+        }
+
+        .typewriter-container {
+            position: relative;
+            display: inline;
+        }
+
+        .typewriter-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background-color: #0070F3;
+            box-shadow: 0 0 10px #0070F3;
+            margin-left: 2px;
+            vertical-align: middle;
+            opacity: 1;
+            transition: opacity 1s ease-out;
+        }
+
+        .typewriter-cursor.fade-out {
+            opacity: 0;
+        }
+
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1500ms cubic-bezier(0.16, 1, 0.3, 1), transform 1500ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .reveal-element.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Roadmap Specific Styles */
+        .roadmap-card {
+            opacity: 0;
+            transform: translateY(40px) scale(0.95);
+            transition: opacity 1000ms cubic-bezier(0.16, 1, 0.3, 1), transform 1000ms cubic-bezier(0.16, 1, 0.3, 1), background-color 1000ms ease;
+            backdrop-filter: blur(16px);
+            background-color: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .roadmap-card.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        #scroll-path {
+            filter: drop-shadow(0 0 12px rgba(0, 112, 243, 0.4));
+            transition: stroke-dashoffset 0.1s linear;
+        }
+
+        .trophy-glow {
+            animation: pulse-glow 2.5s infinite ease-in-out;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { filter: drop-shadow(0 0 15px rgba(255, 224, 131, 0.5)); transform: scale(1); }
+            50% { filter: drop-shadow(0 0 35px rgba(255, 224, 131, 0.8)); transform: scale(1.05); }
+        }
+
+        .glassmorphic {
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+    </style>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Typewriter implementation
+            function typeWriter(element) {
+                const text = element.getAttribute('data-text');
+                const cursor = element.querySelector('.typewriter-cursor');
+                const textContainer = element.querySelector('.typewriter-text');
+                let i = 0;
+                const speed = 50;
+
+                function type() {
+                    if (i < text.length) {
+                        textContainer.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(type, speed);
+                    } else {
+                        setTimeout(() => {
+                            if(cursor) cursor.classList.add('fade-out');
+                        }, 500);
+                    }
+                }
+                type();
+            }
+
+            // Bi-directional Scroll Observer for standard reveals
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        const typewriter = entry.target.querySelector('.typewriter-container');
+                        if (typewriter && !typewriter.dataset.started) {
+                            typewriter.dataset.started = "true";
+                            typeWriter(typewriter);
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                scrollObserver.observe(el);
+            });
+
+            // Specific Observer for Roadmap Cards to trigger based on scroll-driven SVG progress
+            const roadmapObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Cards pop when they reach a certain viewport threshold relative to the drawing path
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.6, rootMargin: '0px 0px -20% 0px' });
+
+            document.querySelectorAll('.roadmap-card').forEach(el => {
+                roadmapObserver.observe(el);
+            });
+
+            // Initial Hero Reveal
+            const heroHeadline = document.getElementById('hero-headline');
+            const heroElements = document.querySelectorAll('.reveal-element');
+            
+            setTimeout(() => {
+                if(heroHeadline) heroHeadline.classList.add('active');
+                heroElements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('active');
+                    }, (index + 1) * 600);
+                });
+            }, 300);
+
+            // Interactive Background Blobs
+            const blobs = document.querySelectorAll('.shader-blob');
+            document.addEventListener('mousemove', (e) => {
+                const x = (e.clientX / window.innerWidth - 0.5) * 60;
+                const y = (e.clientY / window.innerHeight - 0.5) * 60;
+                
+                blobs.forEach((blob, i) => {
+                    const factor = (i + 1) * 0.8;
+                    blob.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
+                });
+            });
+
+            // Premium SVG Path Scroll Sync
+            const path = document.querySelector('#scroll-path');
+            if (path) {
+                const pathLength = path.getTotalLength();
+                path.style.strokeDasharray = pathLength + ' ' + pathLength;
+                path.style.strokeDashoffset = pathLength;
+
+                const updatePath = () => {
+                    const section = document.getElementById('roadmap-section');
+                    const rect = section.getBoundingClientRect();
+                    const viewHeight = window.innerHeight;
+                    
+                    // Calculation for the 'drawing' trigger relative to section position
+                    let scrollPercentage = (viewHeight - rect.top) / (rect.height + viewHeight * 0.4);
+                    scrollPercentage = Math.min(Math.max(scrollPercentage, 0), 1);
+                    
+                    const drawLength = pathLength * scrollPercentage;
+                    path.style.strokeDashoffset = pathLength - drawLength;
+                };
+
+                window.addEventListener('scroll', updatePath);
+                updatePath(); // Initial check
+            }
+        });
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl border-b border-stone-100">
+<div class="flex justify-between items-center px-8 py-3 max-w-[1200px] mx-auto w-full">
+<div class="text-2xl tracking-tighter text-stone-900 dark:text-stone-50 font-bold">
+            ManzilTak
+        </div>
+<div class="hidden md:flex items-center gap-10 font-inter tracking-tight font-medium text-sm">
+<a class="text-blue-700 dark:text-blue-400 font-semibold hover:text-blue-600 dark:hover:text-blue-300 transition-colors duration-500" href="#">Solutions</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors duration-500" href="#">Methodology</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors duration-500" href="#">Curriculum</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors duration-500" href="#">About</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-stone-600 dark:text-stone-400 font-inter text-sm font-medium hover:text-blue-600 transition-all duration-500">Sign In</button>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary-container hover:scale-105 transition-all duration-700 shadow-lg shadow-primary/10">Get Started</button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Centered Hero Section -->
+<section class="relative min-h-[95vh] flex items-center justify-center px-8 pt-28 pb-20 overflow-hidden">
+<div class="shader-bg">
+<div class="shader-blob blob-1"></div>
+<div class="shader-blob blob-2"></div>
+<div class="shader-blob blob-3"></div>
+</div>
+<div class="max-w-6xl mx-auto text-center z-10">
+<h1 class="hero-reveal text-6xl md:text-7xl lg:text-[88px] font-black tracking-[-0.04em] text-stone-900 leading-[1.05] mb-12 mx-auto" id="hero-headline">
+                Meet your personal<br/>career guide
+            </h1>
+<p class="reveal-element text-lg md:text-xl text-stone-600 font-normal leading-relaxed max-w-4xl mx-auto mb-14 whitespace-nowrap overflow-hidden">
+                When the future feels wide and uncertain. Start where clarity comes naturally.
+            </p>
+<div class="reveal-element flex flex-col sm:flex-row justify-center items-center gap-6">
+<button class="bg-stone-900 text-white px-10 py-5 rounded-full text-lg font-bold hover:bg-stone-800 hover:scale-[1.03] transition-all duration-700 shadow-xl shadow-stone-900/10">
+                    Begin Your Journey
+                </button>
+<button class="text-stone-600 font-bold px-8 py-5 flex items-center gap-2 group hover:text-stone-900 transition-all duration-500 text-lg">
+                    View Methodology
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform duration-500">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Roadmap to Mastery Section -->
+<section class="relative bg-[#fcf9f6] py-32 px-8 overflow-hidden min-h-[3200px]" id="roadmap-section">
+<div class="max-w-[1440px] mx-auto relative h-full">
+<div class="text-center mb-64 scroll-reveal">
+<span class="text-secondary font-bold tracking-widest uppercase text-sm">The Curated Process</span>
+<h2 class="text-5xl md:text-7xl font-black tracking-tight mt-4 text-on-surface">
+<span class="typewriter-container" data-text="The roadmap to mastery">
+<span class="typewriter-text"></span><span class="typewriter-cursor"></span>
+</span>
+</h2>
+</div>
+<!-- SVG Path Container: High-fidelity smooth-flowing path spanning height -->
+<div class="absolute inset-0 top-[400px] pointer-events-none flex justify-center">
+<svg class="w-full max-w-7xl h-[2400px]" fill="none" preserveaspectratio="none" viewbox="0 0 1000 2400" xmlns="http://www.w3.org/2000/svg">
+<path d="M500 0 
+           C 500 200, 900 200, 900 400 
+           S 100 600, 100 800 
+           S 900 1000, 900 1200 
+           S 100 1400, 100 1600 
+           S 900 1800, 900 2000 
+           S 500 2200, 500 2400" id="scroll-path" stroke="url(#roadmap-gradient)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"></path>
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="roadmap-gradient" x1="500" x2="500" y1="0" y2="2400">
+<stop stop-color="#0070F3"></stop> <!-- Azure Blue -->
+<stop offset="0.5" stop-color="#fe9572"></stop> <!-- Coral -->
+<stop offset="1" stop-color="#ffe083"></stop> <!-- Sunny Yellow -->
+</lineargradient>
+</defs>
+</svg>
+</div>
+<!-- Narrative Milestones -->
+<div class="relative z-10 space-y-[400px] mt-20">
+<!-- Milestone 1 -->
+<div class="flex justify-center md:justify-end md:pr-[15%]">
+<div class="roadmap-card glassmorphic w-full max-w-md p-10 rounded-[2.5rem] hover:scale-[1.02] transition-transform">
+<div class="w-14 h-14 bg-azure/10 rounded-2xl flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-azure text-3xl font-bold">person_add</span>
+</div>
+<h4 class="text-azure font-bold text-xs uppercase tracking-[0.2em] mb-4">Milestone 01</h4>
+<p class="text-3xl font-black text-stone-900 leading-tight">Sign up for our website</p>
+</div>
+</div>
+<!-- Milestone 2 -->
+<div class="flex justify-center md:justify-start md:pl-[10%]">
+<div class="roadmap-card glassmorphic w-full max-w-md p-10 rounded-[2.5rem] hover:scale-[1.02] transition-transform">
+<div class="w-14 h-14 bg-coral/10 rounded-2xl flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-coral text-3xl font-bold">favorite</span>
+</div>
+<h4 class="text-coral font-bold text-xs uppercase tracking-[0.2em] mb-4">Milestone 02</h4>
+<p class="text-3xl font-black text-stone-900 leading-tight">Tell us your interests without any fear of being judged</p>
+</div>
+</div>
+<!-- Milestone 3 -->
+<div class="flex justify-center md:justify-end md:pr-[10%]">
+<div class="roadmap-card glassmorphic w-full max-w-md p-10 rounded-[2.5rem] hover:scale-[1.02] transition-transform">
+<div class="w-14 h-14 bg-sunny/20 rounded-2xl flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-tertiary text-3xl font-bold">sports_esports</span>
+</div>
+<h4 class="text-tertiary font-bold text-xs uppercase tracking-[0.2em] mb-4">Milestone 03</h4>
+<p class="text-3xl font-black text-stone-900 leading-tight">Play our game which will judge you for your abilities and not your marks</p>
+</div>
+</div>
+<!-- Milestone 4 -->
+<div class="flex justify-center md:justify-start md:pl-[10%]">
+<div class="roadmap-card glassmorphic w-full max-w-md p-10 rounded-[2.5rem] hover:scale-[1.02] transition-transform">
+<div class="w-14 h-14 bg-azure/10 rounded-2xl flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-azure text-3xl font-bold">bolt</span>
+</div>
+<h4 class="text-azure font-bold text-xs uppercase tracking-[0.2em] mb-4">Milestone 04</h4>
+<p class="text-3xl font-black text-stone-900 leading-tight">Our AI agent will find the perfect career for you</p>
+</div>
+</div>
+<!-- Milestone 5 -->
+<div class="flex justify-center md:justify-end md:pr-[15%]">
+<div class="roadmap-card glassmorphic w-full max-w-md p-10 rounded-[2.5rem] hover:scale-[1.02] transition-transform">
+<div class="w-14 h-14 bg-coral/10 rounded-2xl flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-coral text-3xl font-bold">family_restroom</span>
+</div>
+<h4 class="text-coral font-bold text-xs uppercase tracking-[0.2em] mb-4">Milestone 05</h4>
+<p class="text-3xl font-black text-stone-900 leading-tight">Coordinate with your parents and teachers for making your dreams a reality</p>
+</div>
+</div>
+<!-- Finale Trophy -->
+<div class="flex justify-center pt-24 pb-20">
+<div class="roadmap-card flex flex-col items-center text-center">
+<div class="trophy-glow bg-sunny/20 p-12 rounded-full mb-10">
+<svg class="w-32 h-32 text-sunny" fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 5H18V3C18 2.45 17.55 2 17 2H7C6.45 2 6 2.45 6 3V5H5C3.9 5 3 5.9 3 7V9C3 11.21 4.79 13 7 13H7.09C7.56 14.83 9.1 16.27 11 16.73V20H8V22H16V20H13V16.73C14.9 16.27 16.44 14.83 16.91 13H17C19.21 13 21 11.21 21 9V7C21 5.9 20.1 5 19 5ZM5 9V7H6V11C4.9 11 4 10.11 4 9H5ZM18 11V7H19V9C19 10.11 18.1 11 17 11H18Z"></path>
+</svg>
+</div>
+<h3 class="text-5xl font-black text-stone-900 tracking-tight">Success is Yours</h3>
+<p class="text-stone-500 mt-4 text-xl font-medium max-w-md">The journey of a thousand miles ends with your true calling.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Section -->
+<section class="py-32 px-8 bg-background overflow-hidden">
+<div class="max-w-[1440px] mx-auto">
+<div class="mb-20 scroll-reveal">
+<h2 class="text-5xl md:text-7xl font-black tracking-tight text-on-surface">
+<span class="typewriter-container" data-text="The Intelligence Layer">
+<span class="typewriter-text"></span><span class="typewriter-cursor"></span>
+</span>
+</h2>
+<p class="text-on-surface-variant text-xl mt-6 max-w-xl leading-relaxed">Every tool you need to navigate the academic and professional landscape with confidence.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-6 h-auto lg:h-[700px]">
+<!-- Large Card 1 -->
+<div class="md:col-span-3 lg:col-span-8 bg-primary-fixed/30 rounded-[2rem] p-10 flex flex-col justify-between group hover:-translate-y-2 hover:shadow-2xl hover:scale-[1.01] transition-all duration-700 cursor-pointer overflow-hidden relative scroll-reveal">
+<div class="relative z-10">
+<span class="bg-primary text-on-primary px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">Industry Pulse</span>
+<h3 class="text-4xl font-black mt-8 text-on-primary-fixed">Real-time market alignment</h3>
+<p class="text-on-primary-fixed-variant mt-4 text-lg max-w-sm">We monitor 40,000+ industry signals to ensure your learning remains relevant as the global economy shifts.</p>
+</div>
+<div class="absolute right-0 bottom-0 w-1/2 h-2/3 opacity-20 group-hover:scale-110 transition-transform duration-1000">
+<span class="material-symbols-outlined text-[200px]" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+</div>
+</div>
+<!-- Small Card 2 -->
+<div class="md:col-span-3 lg:col-span-4 bg-secondary-fixed/30 rounded-[2rem] p-10 flex flex-col items-center text-center justify-center group hover:-translate-y-2 hover:shadow-2xl hover:scale-[1.02] transition-all duration-700 cursor-pointer scroll-reveal">
+<span class="material-symbols-outlined text-6xl text-secondary mb-6 group-hover:rotate-12 transition-transform duration-700">verified</span>
+<h3 class="text-2xl font-bold text-on-secondary-fixed">Verified Mentorship</h3>
+<p class="text-on-secondary-fixed-variant mt-2 text-sm">Direct access to industry veterans.</p>
+</div>
+<!-- Small Card 3 -->
+<div class="md:col-span-3 lg:col-span-4 bg-tertiary-fixed/30 rounded-[2rem] p-10 flex flex-col justify-end group hover:-translate-y-2 hover:shadow-2xl hover:scale-[1.02] transition-all duration-700 cursor-pointer relative overflow-hidden scroll-reveal">
+<div class="absolute top-10 left-10">
+<span class="material-symbols-outlined text-5xl text-tertiary">rocket_launch</span>
+</div>
+<h3 class="text-2xl font-bold text-on-tertiary-fixed">Accelerated Path</h3>
+<p class="text-on-tertiary-fixed-variant mt-2 text-sm">Cut 40% off your time to hire with targeted skill-stacking modules.</p>
+</div>
+<!-- Medium Card 4 -->
+<div class="md:col-span-3 lg:col-span-8 bg-surface-container-highest rounded-[2rem] p-10 flex flex-col md:flex-row items-center gap-10 group hover:-translate-y-2 hover:shadow-2xl hover:scale-[1.01] transition-all duration-700 cursor-pointer scroll-reveal">
+<div class="w-full md:w-1/2">
+<h3 class="text-3xl font-black text-on-surface">The Academic Concierge</h3>
+<p class="text-on-surface-variant mt-4">24/7 intelligent support to answer complex questions about curriculum, admissions, and career transitions.</p>
+</div>
+<div class="w-full md:w-1/2 glass-card p-6 rounded-2xl border border-white/40 shadow-xl bg-white/40">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-2 h-2 rounded-full bg-primary animate-ping"></div>
+<span class="text-xs font-bold uppercase tracking-widest text-primary">Assistant active</span>
+</div>
+<div class="space-y-3">
+<div class="h-3 w-3/4 bg-primary-fixed/40 rounded-full"></div>
+<div class="h-3 w-full bg-primary-fixed/20 rounded-full"></div>
+<div class="h-3 w-1/2 bg-primary-fixed/20 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-40 px-8 text-center bg-primary overflow-hidden relative">
+<div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+<div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-white rounded-full blur-[160px]"></div>
+<div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-secondary-fixed rounded-full blur-[120px]"></div>
+</div>
+<div class="max-w-4xl mx-auto relative z-10 scroll-reveal">
+<h2 class="text-5xl md:text-8xl font-black tracking-tighter text-on-primary mb-10 leading-none">
+<span class="typewriter-container" data-text="Your future self is waiting.">
+<span class="typewriter-text"></span><span class="typewriter-cursor"></span>
+</span>
+</h2>
+<p class="text-primary-fixed text-2xl font-light mb-12 max-w-2xl mx-auto leading-relaxed">
+                Join 12,000+ students who have found their calling through precision curation.
+            </p>
+<div class="flex flex-col sm:flex-row justify-center gap-6">
+<button class="bg-on-primary text-primary px-12 py-6 rounded-2xl text-xl font-black hover:scale-105 hover:bg-stone-50 transition-all duration-700 shadow-2xl shadow-black/20">
+                    Get Your Free Prediction
+                </button>
+<button class="border-2 border-primary-fixed text-on-primary px-12 py-6 rounded-2xl text-xl font-black hover:bg-white/10 hover:scale-105 transition-all duration-700">
+                    Schedule a Demo
+                </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-stone-100 dark:bg-stone-950">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full max-w-[1440px] mx-auto">
+<div class="flex flex-col gap-4 mb-8 md:mb-0">
+<div class="text-lg font-bold text-stone-800 dark:text-stone-200">ManzilTak</div>
+<div class="font-inter text-xs tracking-widest uppercase text-stone-500">
+                © 2024 ManzilTak. The Academic Curator.
+            </div>
+</div>
+<div class="flex flex-wrap justify-center gap-10 font-inter text-xs tracking-widest uppercase">
+<a class="text-stone-500 hover:underline decoration-blue-500/30 transition-all duration-700 opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="text-stone-500 hover:underline decoration-blue-500/30 transition-all duration-700 opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="text-stone-500 hover:underline decoration-blue-500/30 transition-all duration-700 opacity-80 hover:opacity-100" href="#">Academic Integrity</a>
+<a class="text-stone-500 hover:underline decoration-blue-500/30 transition-all duration-700 opacity-80 hover:opacity-100" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>
