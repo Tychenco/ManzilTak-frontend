@@ -186,7 +186,7 @@ Optional features (easy to add):
 
 - 🔑 Multi-tenancy, Role-based access control (RBAC)
 - 🔐 OAuth for Single Sign-On (SSO), Enterprise SSO, SAML, OpenID Connect (OIDC), EASIE
-- 🔗 Web 3 (Base, MetaMask, Coinbase Wallet, OKX Wallet)
+- 🔗 Web 3 (Base, MetaMask, Coinbase Wallet, OKX Wallet) 
 
 ### Philosophy
 
