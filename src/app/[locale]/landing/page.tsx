@@ -1,9 +1,14 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import Link from 'next/link';
+import { useCallback, useEffect, useRef } from 'react';
+
 import { CareerTimeline } from '../../../../landing-page-prototype/CareerTimeline';
 
-export default function RoadmapTestPage() {
+export default function LandingPage() {
+  const scrollToRoadmap = useCallback(() => {
+    document.getElementById('roadmap-mastery')?.scrollIntoView({ behavior: 'smooth' });
+  }, []);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -146,13 +151,13 @@ export default function RoadmapTestPage() {
             <div className="text-2xl tracking-tighter font-bold" style={{ color: '#1c1917' }}>ManzilTak</div>
             <div className="hidden md:flex items-center gap-10 tracking-tight font-medium text-sm">
               <a className="font-semibold" style={{ color: '#1d4ed8' }} href="#">Solutions</a>
-              <a style={{ color: '#57534e' }} href="#">Methodology</a>
+              <button style={{ color: '#57534e' }} onClick={scrollToRoadmap}>Methodology</button>
               <a style={{ color: '#57534e' }} href="#">Curriculum</a>
-              <a style={{ color: '#57534e' }} href="#">About</a>
+              <Link style={{ color: '#57534e' }} href="/about">About</Link>
             </div>
             <div className="flex items-center gap-6">
-              <button className="text-sm font-medium" style={{ color: '#57534e' }}>Sign In</button>
-              <button className="text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:scale-105 transition-all duration-700" style={{ backgroundColor: '#0058c3', boxShadow: '0 4px 14px rgba(0,88,195,0.1)' }}>Get Started</button>
+              <Link className="text-sm font-medium" style={{ color: '#57534e' }} href="/sign-in">Log In</Link>
+              <Link className="text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:scale-105 transition-all duration-700" style={{ backgroundColor: '#0058c3', boxShadow: '0 4px 14px rgba(0,88,195,0.1)' }} href="/sign-up">Get Started</Link>
             </div>
           </div>
         </nav>
@@ -208,10 +213,10 @@ export default function RoadmapTestPage() {
                 When the future feels wide and uncertain. Start where clarity comes naturally.
               </p>
               <div className="reveal-element flex flex-col sm:flex-row justify-center items-center gap-6">
-                <button className="text-white px-10 py-5 rounded-full text-lg font-bold hover:scale-[1.03] transition-all duration-700" style={{ backgroundColor: '#1c1917', boxShadow: '0 10px 25px rgba(28,25,23,0.1)' }}>
+                <Link className="text-white px-10 py-5 rounded-full text-lg font-bold hover:scale-[1.03] transition-all duration-700" style={{ backgroundColor: '#1c1917', boxShadow: '0 10px 25px rgba(28,25,23,0.1)' }} href="/sign-up">
                   Begin Your Journey
-                </button>
-                <button className="font-bold px-8 py-5 flex items-center gap-2 group transition-all duration-500 text-lg hover:text-stone-900" style={{ color: '#57534e' }}>
+                </Link>
+                <button className="font-bold px-8 py-5 flex items-center gap-2 group transition-all duration-500 text-lg hover:text-stone-900" style={{ color: '#57534e' }} onClick={scrollToRoadmap}>
                   View Methodology
                   <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform duration-500">arrow_forward</span>
                 </button>
@@ -234,7 +239,7 @@ export default function RoadmapTestPage() {
           </div>
 
           {/* ── Roadmap Section ── */}
-          <section className="relative overflow-hidden py-16 px-8" style={{ backgroundColor: '#ffffff' }}>
+          <section id="roadmap-mastery" className="relative overflow-hidden py-16 px-8" style={{ backgroundColor: '#ffffff' }}>
             <div className="text-center mb-4 mt-8 scroll-reveal max-w-4xl mx-auto relative" style={{ zIndex: 10 }}>
               <span className="font-bold tracking-widest uppercase text-sm" style={{ color: '#99462a' }}>The Curated Process</span>
               <h2 className="text-5xl md:text-7xl font-black tracking-tight mt-4 whitespace-nowrap" style={{ color: '#1c1c1a' }}>
@@ -385,9 +390,9 @@ export default function RoadmapTestPage() {
                 Join 12,000+ students who have found their calling through precision curation.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-6">
-                <button className="text-xl font-black hover:scale-105 transition-all duration-700 px-12 py-6 rounded-2xl" style={{ backgroundColor: '#ffffff', color: '#0058c3', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.2)' }}>
+                <Link className="text-xl font-black hover:scale-105 transition-all duration-700 px-12 py-6 rounded-2xl" style={{ backgroundColor: '#ffffff', color: '#0058c3', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.2)' }} href="/sign-up">
                   Get Your Free Prediction
-                </button>
+                </Link>
                 <button className="text-white text-xl font-black hover:scale-105 transition-all duration-700 px-12 py-6 rounded-2xl hover:bg-white/10" style={{ border: '2px solid #d8e2ff' }}>
                   Schedule a Demo
                 </button>
@@ -404,9 +409,9 @@ export default function RoadmapTestPage() {
               <div className="text-xs tracking-widest uppercase" style={{ color: '#78716c' }}>© 2024 ManzilTak. The Academic Curator.</div>
             </div>
             <div className="flex flex-wrap justify-center gap-10 text-xs tracking-widest uppercase">
-              <a className="opacity-80 hover:opacity-100 hover:underline transition-all duration-700" style={{ color: '#78716c' }} href="#">Privacy Policy</a>
-              <a className="opacity-80 hover:opacity-100 hover:underline transition-all duration-700" style={{ color: '#78716c' }} href="#">Terms of Service</a>
-              <a className="opacity-80 hover:opacity-100 hover:underline transition-all duration-700" style={{ color: '#78716c' }} href="#">Academic Integrity</a>
+              <Link className="opacity-80 hover:opacity-100 hover:underline transition-all duration-700" style={{ color: '#78716c' }} href="/privacy">Privacy Policy</Link>
+              <Link className="opacity-80 hover:opacity-100 hover:underline transition-all duration-700" style={{ color: '#78716c' }} href="/terms">Terms of Service</Link>
+              <Link className="opacity-80 hover:opacity-100 hover:underline transition-all duration-700" style={{ color: '#78716c' }} href="/academic-integrity">Academic Integrity</Link>
               <a className="opacity-80 hover:opacity-100 hover:underline transition-all duration-700" style={{ color: '#78716c' }} href="#">Contact</a>
             </div>
           </div>

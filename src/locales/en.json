@@ -22,5 +22,21 @@
     "dashboard_link": "Dashboard",
     "user_profile_link": "Manage your account",
     "sign_out": "Sign out"
+  },
+  "AboutPage": {
+    "meta_title": "About ManzilTak",
+    "meta_description": "Learn about ManzilTak's mission to transform career guidance through intelligent, gamified assessments."
+  },
+  "TermsPage": {
+    "meta_title": "Terms of Service",
+    "meta_description": "Read the ManzilTak terms of service governing your use of our platform."
+  },
+  "PrivacyPage": {
+    "meta_title": "Privacy Policy",
+    "meta_description": "Understand how ManzilTak collects, uses, and protects your personal data."
+  },
+  "AcademicIntegrityPage": {
+    "meta_title": "Academic Integrity",
+    "meta_description": "ManzilTak's commitment to assessment authenticity and academic honesty."
   }
 }
