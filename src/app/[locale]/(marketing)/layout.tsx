@@ -1,5 +1,4 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { DemoBanner } from '@/components/DemoBanner';
 import { LocaleSwitcher } from '@/components/LocaleSwitcher';
 import { Link } from '@/libs/I18nNavigation';
 import { BaseTemplate } from '@/templates/BaseTemplate';
@@ -17,7 +16,6 @@ export default async function Layout(props: {
 
   return (
     <>
-      <DemoBanner />
       <BaseTemplate
         leftNav={(
           <>
@@ -28,7 +26,7 @@ export default async function Layout(props: {
             <li>
               <Link
                 href="/sign-in/"
-                className="border-none text-gray-700 hover:text-gray-900"
+                className="inline-flex h-9 items-center justify-center rounded-full bg-white px-4 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 transition-colors"
               >
                 {t('sign_in_link')}
               </Link>
@@ -37,7 +35,7 @@ export default async function Layout(props: {
             <li>
               <Link
                 href="/sign-up/"
-                className="border-none text-gray-700 hover:text-gray-900"
+                className="inline-flex h-9 items-center justify-center rounded-full bg-blue-600 px-4 text-sm font-medium text-white shadow-sm hover:bg-blue-500 transition-colors"
               >
                 {t('sign_up_link')}
               </Link>

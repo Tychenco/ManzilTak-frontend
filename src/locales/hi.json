@@ -1,0 +1,42 @@
+{
+  "RootLayout": {
+    "sign_in_link": "साइन इन",
+    "sign_up_link": "साइन अप"
+  },
+  "SignIn": {
+    "meta_title": "साइन इन",
+    "meta_description": "हमारे उपयोगकर्ता-अनुकूल लॉगिन प्रक्रिया के साथ आसानी से साइन इन करें।"
+  },
+  "SignUp": {
+    "meta_title": "साइन अप",
+    "meta_description": "हमारे सहज साइन-अप प्रक्रिया के माध्यम से सरलता से खाता बनाएं।"
+  },
+  "Dashboard": {
+    "meta_title": "डैशबोर्ड",
+    "hello_message": "नमस्ते {email}!"
+  },
+  "UserProfile": {
+    "meta_title": "उपयोगकर्ता प्रोफ़ाइल"
+  },
+  "DashboardLayout": {
+    "dashboard_link": "डैशबोर्ड",
+    "user_profile_link": "अपना खाता प्रबंधित करें",
+    "sign_out": "साइन आउट"
+  },
+  "AboutPage": {
+    "meta_title": "ManzilTak के बारे में",
+    "meta_description": "बुद्धिमान, गेमिफाइड आकलन के माध्यम से करियर मार्गदर्शन को बदलने के ManzilTak के मिशन के बारे में जानें।"
+  },
+  "TermsPage": {
+    "meta_title": "सेवा की शर्तें",
+    "meta_description": "हमारे प्लेटफ़ॉर्म के आपके उपयोग को नियंत्रित करने वाली ManzilTak की सेवा की शर्तें पढ़ें।"
+  },
+  "PrivacyPage": {
+    "meta_title": "गोपनीयता नीति",
+    "meta_description": "समझें कि ManzilTak आपके व्यक्तिगत डेटा को कैसे एकत्र, उपयोग और सुरक्षित करता है।"
+  },
+  "AcademicIntegrityPage": {
+    "meta_title": "अकादमिक सत्यनिष्ठा",
+    "meta_description": "मूल्यांकन प्रामाणिकता और अकादमिक ईमानदारी के लिए ManzilTak की प्रतिबद्धता।"
+  }
+}
